@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNet_random", "dotNet_random\dotNet_random.csproj", "{8F36A320-AE8D-4EE1-9DE4-A4B05082F5C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNetPerformanceTest", "dotNetPerformanceTest.csproj", "{8F36A320-AE8D-4EE1-9DE4-A4B05082F5C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
