@@ -37,6 +37,24 @@ namespace DotNetPerformance
             }
         }
 
+        protected int _iterationCount = 1;
+        public float Score
+        {
+            get
+            {
+                float time = this.Time;
+                if (_iterationCount == 0 || time == 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    double valule = _iterationCount;
+                    return _iterationCount / (1000 * time);
+                }
+            }
+        }
+
         protected int _lastStartTime = 0;
         protected int _count = 0;
 

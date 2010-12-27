@@ -15,14 +15,15 @@ namespace DotNetPerformance.CollectionsTests
     {
         public DynamicArrayAccessTimeTest()
         {
-            _name = "Динамический массив<int> последовательный доступ к элементам";
+            _name = "DynamicArray<int> последовательный доступ к элементам";
+            _iterationCount = ListTestParams.ListAccessSize;
         }
 
         public override void Do()
         {
             List<int> list = new List<int>();
-            
-            for (int i = 0; i < ListTestParams.ListAccessSize; ++i)
+
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 list.Add(i);
             }
@@ -43,14 +44,15 @@ namespace DotNetPerformance.CollectionsTests
     {
         public DynamicArrayInsertRemoveTest()
         {
-            _name = "Динамический массив<int> вставка/удаление элементов";
+            _name = "DynamicArray<int> вставка и удаление элементов";
+            _iterationCount = ListTestParams.ListInsertRemoveSize;
         }
         
         public override void Do()
         {            
             List<int> list = new List<int>();
             StartTiming();
-            for (int i = 0; i < ListTestParams.ListInsertRemoveSize; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 list.Add(i);
             }
@@ -66,14 +68,15 @@ namespace DotNetPerformance.CollectionsTests
     {
         public LinkedListAccessTimeTest()
         {
-            _name = "Связанный список<int> последовательный доступ к элементам";
+            _name = "LinkedList<int> последовательный доступ к элементам";
+            _iterationCount = ListTestParams.ListAccessSize;
         }
 
         public override void Do()
         {
             LinkedList<int> list = new LinkedList<int>();
 
-            for (int i = 0; i < ListTestParams.ListAccessSize; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 list.AddLast(i);
             }
@@ -94,14 +97,15 @@ namespace DotNetPerformance.CollectionsTests
     {
         public LinkedListInsertRemoveTest()
         {
-            _name = "Связанный список<int> вставка/удаление элементов";
+            _name = "LinkedList<int> вставка и удаление элементов";
+            _iterationCount = ListTestParams.ListInsertRemoveSize;
         }
         
         public override void Do()
         {            
             LinkedList<int> list = new LinkedList<int>();
             StartTiming();
-            for (int i = 0; i < ListTestParams.ListInsertRemoveSize; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 list.AddLast(i);
             }
