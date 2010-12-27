@@ -10,6 +10,7 @@ namespace DotNetPerformance.RandomTests
         public IntRandomTest()
         {
             _name = "Генерация случайных чисел int";
+            _iterationCount = 100000000;
         }
 
         private Random rnd = new Random();
@@ -17,7 +18,7 @@ namespace DotNetPerformance.RandomTests
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 100000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 int x = rnd.Next();
             }
@@ -30,6 +31,7 @@ namespace DotNetPerformance.RandomTests
         public DoubleRandomTest()
         {
             _name = "Генерация случайных чисел double";
+            _iterationCount = 100000000;
         }
 
         private Random rnd = new Random();
@@ -37,7 +39,7 @@ namespace DotNetPerformance.RandomTests
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 100000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 double x = rnd.NextDouble();
             }

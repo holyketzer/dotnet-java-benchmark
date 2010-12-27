@@ -37,7 +37,7 @@ namespace DotNetPerformance
             Console.WriteLine(this.Name + ":");
             foreach (SomeTest test in _tests)
             {
-                Console.WriteLine(test.Time + "\t ms. " + test.Name);
+                Console.WriteLine(String.Format("{0:F5} op/mks {1:F2} ms. {2}", test.Score, test.Time, test.Name));
             }
         }
     }

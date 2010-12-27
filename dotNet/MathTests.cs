@@ -10,12 +10,13 @@ namespace DotNetPerformance.Math
         public Div10Test()
         {
             _name = "Деление целых чисел на 10";
+            _iterationCount = 1000000000;
         }
         
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 1000000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 int x = i / 10;
             }
@@ -28,12 +29,13 @@ namespace DotNetPerformance.Math
         public SqrtTest()
         {
             _name = "Квадратный корень";
+            _iterationCount = 1000000000;
         }
 
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 1000000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 double x = System.Math.Sqrt(i);
             }
@@ -46,12 +48,13 @@ namespace DotNetPerformance.Math
         public SinTest()
         {
             _name = "Синус";
+            _iterationCount = 1000000000;
         }
 
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 1000000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 double x = System.Math.Sin(i);
             }
@@ -64,12 +67,13 @@ namespace DotNetPerformance.Math
         public CosTest()
         {
             _name = "Косинус";
+            _iterationCount = 1000000000;
         }
 
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 1000000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 double x = System.Math.Cos(i);
             }
@@ -82,12 +86,13 @@ namespace DotNetPerformance.Math
         public TanTest()
         {
             _name = "Тангенс";
+            _iterationCount = 10000000;
         }
 
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 10000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 double x = System.Math.Tan(i);
             }
@@ -100,12 +105,13 @@ namespace DotNetPerformance.Math
         public Log10Test()
         {
             _name = "Десятичный логарифм";
+            _iterationCount = 10000000;
         }
 
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 10000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 double x = System.Math.Log10(i);
             }
@@ -118,12 +124,13 @@ namespace DotNetPerformance.Math
         public ExpTest()
         {
             _name = "Экспонента";
+            _iterationCount = 10000000;
         }
 
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 10000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 double x = System.Math.Exp(i);
             }
@@ -136,12 +143,13 @@ namespace DotNetPerformance.Math
         public AsinTest()
         {
             _name = "Арксинус";
+            _iterationCount = 10000000;
         }
 
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 10000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 double x = System.Math.Asin(i);
             }
@@ -154,12 +162,13 @@ namespace DotNetPerformance.Math
         public AcosTest()
         {
             _name = "Арккосинус";
+            _iterationCount = 10000000;
         }
 
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 10000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 double x = System.Math.Acos(i);
             }
@@ -172,12 +181,13 @@ namespace DotNetPerformance.Math
         public AtanTest()
         {
             _name = "Арктангенс";
+            _iterationCount = 10000000;
         }
 
         public override void Do()
         {
             StartTiming();
-            for (int i = 0; i < 10000000; ++i)
+            for (int i = 0; i < _iterationCount; ++i)
             {
                 double x = System.Math.Atan(i);
             }

@@ -9,13 +9,14 @@ namespace DotNetPerformance.ArraysTests
     {
         public ArrayIntCreateTest()
         {
-            _name = "Создние и заполнение одномерного массива int[]";
+            _name = "int[] создание и заполнение массива";
+            _iterationCount = 50000000;
         }
         
         public override void Do()
         {
             StartTiming();
-            int[] array = new int[50000000];
+            int[] array = new int[_iterationCount];
             for (int i = 0; i < array.Length; ++i)
             {
                 array[i] = i;
@@ -28,12 +29,13 @@ namespace DotNetPerformance.ArraysTests
     {
         public ArrayIntAccessTest()
         {
-            _name = "Последовательный доступ к элементам одномерного массива int[]";
+            _name = "int[] последовательный доступ к элементам";
+            _iterationCount = 50000000;
         }
 
         public override void Do()
-        {            
-            int[] array = new int[50000000];
+        {
+            int[] array = new int[_iterationCount];
             for (int i = 0; i < array.Length; ++i)
             {
                 array[i] = i;
@@ -56,13 +58,14 @@ namespace DotNetPerformance.ArraysTests
     {
         public ArrayDoubleCreateTest()
         {
-            _name = "Создние и заполнение одномерного массива double[]";
+            _name = "double[] создание и заполнение массива";
+            _iterationCount = 50000000;
         }
 
         public override void Do()
         {
             StartTiming();
-            double[] array = new double[50000000];
+            double[] array = new double[_iterationCount];
             for (int i = 0; i < array.Length; ++i)
             {
                 array[i] = i;
@@ -75,12 +78,13 @@ namespace DotNetPerformance.ArraysTests
     {
         public ArrayDoubleAccessTest()
         {
-            _name = "Последовательный доступ к элементам одномерного массива double[]";
+            _name = "double[] последовательный доступ к элементам";
+            _iterationCount = 50000000;
         }
 
         public override void Do()
         {
-            double[] array = new double[50000000];
+            double[] array = new double[_iterationCount];
             for (int i = 0; i < array.Length; ++i)
             {
                 array[i] = i;
