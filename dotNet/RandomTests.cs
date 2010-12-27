@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DotNetPerformanceTest
+namespace DotNetPerformance.RandomTests
 {
     class IntRandomTest : SomeTest
     {
@@ -42,6 +42,17 @@ namespace DotNetPerformanceTest
                 double x = rnd.NextDouble();
             }
             StopTiming();
+        }
+    }
+
+    class RandomTestsRunner : SomeTestRunner
+    {
+        protected override void InitTests()
+        {
+            _name = "Генерация случайных чисел";
+            
+            _tests.Add(new IntRandomTest());
+            _tests.Add(new DoubleRandomTest());
         }
     }
 }

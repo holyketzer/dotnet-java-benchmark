@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DotNetPerformanceTest
+namespace DotNetPerformance
 {
-    class TestRunner
+    abstract class SomeTestRunner
     {
-        private List<SomeTest> _tests = new List<SomeTest>();
+        protected List<SomeTest> _tests = new List<SomeTest>();
         
-        public TestRunner()
+        public SomeTestRunner()
         {
-            _tests.Add(new IntRandomTest());
-            _tests.Add(new DoubleRandomTest());
-            _tests.Add(new DynamicArrayAccessTimeTest());
-            _tests.Add(new DynamicArrayInsertRemoveTest());
-            _tests.Add(new LinkedListAccessTimeTest());
-            _tests.Add(new LinkedListInsertRemoveTest());
+            InitTests();
+        }
+
+        protected abstract void InitTests();
+
+        protected string _name = "";
+        public string Name
+        {
+            get { return _name; }
         }
         
         public void Do()
@@ -31,6 +34,7 @@ namespace DotNetPerformanceTest
         public void WriteResult()
         {
             Console.WriteLine();
+            Console.WriteLine(this.Name + ":");
             foreach (SomeTest test in _tests)
             {
                 Console.WriteLine(test.Time + "\t ms. " + test.Name);

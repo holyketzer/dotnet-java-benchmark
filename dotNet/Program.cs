@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DotNetPerformanceTest
+namespace DotNetPerformance
 {
     class Program
     {
         static void Main(string[] args)
         {
-            TestRunner testRunner = new TestRunner();
+            Tester testRunner = new Tester();
             testRunner.Do();
             testRunner.WriteResult();
         }
