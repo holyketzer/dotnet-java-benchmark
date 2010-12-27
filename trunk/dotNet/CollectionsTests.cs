@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DotNetPerformanceTest
+namespace DotNetPerformance.CollectionsTests
 {
     class ListTestParams
     {
@@ -110,6 +110,18 @@ namespace DotNetPerformanceTest
                 list.RemoveLast();
             }
             StopTiming();
+        }
+    }
+
+    class CollectionsTestsRunner : SomeTestRunner
+    {
+        protected override void InitTests()
+        {
+            _name = "Коллекции";
+            _tests.Add(new DynamicArrayAccessTimeTest());
+            _tests.Add(new DynamicArrayInsertRemoveTest());
+            _tests.Add(new LinkedListAccessTimeTest());
+            _tests.Add(new LinkedListInsertRemoveTest());
         }
     }
 }
