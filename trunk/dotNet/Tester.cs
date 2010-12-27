@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using DotNetPerformance.RandomTests;
+using DotNetPerformance.ArraysTests;
 using DotNetPerformance.CollectionsTests;
+using DotNetPerformance.Math;
+using DotNetPerformance.RandomTests;
+
 
 namespace DotNetPerformance
 {
@@ -26,8 +29,10 @@ namespace DotNetPerformance
 
         private void InitTestsRunners()
         {
-            _testsRunners.Add(new RandomTestsRunner());
-            _testsRunners.Add(new CollectionsTestsRunner());
+            _testsRunners.Add(new MathTestsRunner());
+            /*_testsRunners.Add(new RandomTestsRunner());
+            _testsRunners.Add(new ArraysTestsRunner());
+            _testsRunners.Add(new CollectionsTestsRunner()); */
         }
 
         public void Do()
