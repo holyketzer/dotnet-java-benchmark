@@ -8,7 +8,7 @@ namespace DotNetPerformance.CollectionsTests
     class ListTestParams
     {
         public static readonly int ListInsertRemoveSize = 200000;
-        public static readonly int ListAccessSize = 1000000;
+        public static readonly int ListAccessSize = 2000000;
     }
     
     class DynamicArrayAccessTimeTest : SomeTest
@@ -45,7 +45,7 @@ namespace DotNetPerformance.CollectionsTests
         public DynamicArrayInsertRemoveTest()
         {
             _name = "DynamicArray<int> вставка и удаление элементов";
-            _iterationCount = ListTestParams.ListInsertRemoveSize;
+            _iterationCount = ListTestParams.ListInsertRemoveSize / 4;
         }
         
         public override void Do()
@@ -98,7 +98,7 @@ namespace DotNetPerformance.CollectionsTests
         public LinkedListInsertRemoveTest()
         {
             _name = "LinkedList<int> вставка и удаление элементов";
-            _iterationCount = ListTestParams.ListInsertRemoveSize;
+            _iterationCount = ListTestParams.ListInsertRemoveSize * 10;
         }
         
         public override void Do()
@@ -114,6 +114,54 @@ namespace DotNetPerformance.CollectionsTests
                 list.RemoveLast();
             }
             StopTiming();
+        }        
+    }
+
+    class StackInsertRemoveTest : SomeTest
+    {
+        public StackInsertRemoveTest()
+        {
+            _name = "Stack<int> вставка и удаление элементов";
+            _iterationCount = ListTestParams.ListInsertRemoveSize * 300;
+        }
+
+        public override void Do()
+        {
+            Stack<int> stack = new Stack<int>();
+            StartTiming();
+            for (int i = 0; i < _iterationCount; ++i)
+            {
+                stack.Push(i);
+            }
+            for (int i = 0; i < _iterationCount; ++i)
+            {
+                int x = stack.Pop();
+            }
+            StopTiming();
+        }
+    }
+
+    class QueueInsertRemoveTest : SomeTest
+    {
+        public QueueInsertRemoveTest()
+        {
+            _name = "Queue<int> вставка и удаление элементов";
+            _iterationCount = ListTestParams.ListInsertRemoveSize * 300;
+        }
+        
+        public override void Do()
+        {
+            Queue<int> stack = new Queue<int>();
+            StartTiming();
+            for (int i = 0; i < _iterationCount; ++i)
+            {
+                stack.Enqueue(i);
+            }
+            for (int i = 0; i < _iterationCount; ++i)
+            {
+                int x = stack.Dequeue();
+            }
+            StopTiming();
         }
     }
 
@@ -126,6 +174,8 @@ namespace DotNetPerformance.CollectionsTests
             _tests.Add(new DynamicArrayInsertRemoveTest());
             _tests.Add(new LinkedListAccessTimeTest());
             _tests.Add(new LinkedListInsertRemoveTest());
+            _tests.Add(new StackInsertRemoveTest());
+            _tests.Add(new QueueInsertRemoveTest());
         }
     }
 }
