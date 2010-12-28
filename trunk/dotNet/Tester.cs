@@ -29,9 +29,9 @@ namespace DotNetPerformance
 
         private void InitTestsRunners()
         {
-            _testsRunners.Add(new MathTestsRunner());
+            /*_testsRunners.Add(new MathTestsRunner());
             _testsRunners.Add(new RandomTestsRunner());
-            _testsRunners.Add(new ArraysTestsRunner());
+            _testsRunners.Add(new ArraysTestsRunner());*/
             _testsRunners.Add(new CollectionsTestsRunner());
         }
 
