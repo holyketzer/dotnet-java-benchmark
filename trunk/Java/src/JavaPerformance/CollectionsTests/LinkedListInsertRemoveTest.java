@@ -1,12 +1,15 @@
-package JavaPerformanceTest;
+package JavaPerformance.CollectionsTests;
 
 import java.util.LinkedList;
+
+import JavaPerformance.SomeTest;
 
 public class LinkedListInsertRemoveTest extends SomeTest
 {
     public LinkedListInsertRemoveTest()
     {
-        _name = "Связанный список<int> вставка/удаление элементов";
+        _name = "LinkedList<int> вставка и удаление элементов";
+        _iterationCount = CollectionTestParams.ListInsertRemoveSize * 10;
     }
     
     @Override
@@ -14,7 +17,7 @@ public class LinkedListInsertRemoveTest extends SomeTest
     {            
         LinkedList<Integer> list = new LinkedList<Integer>();
         StartTiming();
-        for (int i = 0; i < ListTestParams.ListInsertRemoveSize; ++i)
+        for (int i = 0; i < _iterationCount; ++i)
         {
             list.addLast(i);
         }
@@ -23,5 +26,7 @@ public class LinkedListInsertRemoveTest extends SomeTest
             list.removeLast();
         }
         StopTiming();
+        
+        list.clear();
     }
 }

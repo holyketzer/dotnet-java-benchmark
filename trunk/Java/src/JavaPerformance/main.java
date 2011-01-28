@@ -1,4 +1,4 @@
-package JavaPerformanceTest;
+package JavaPerformance;
 
 class main {
 
@@ -7,9 +7,8 @@ class main {
 	 */
 	public static void main(String[] args) 
 	{
-        TestRunner testRunner = new TestRunner();
+        Tester testRunner = new Tester();
         testRunner.Do();
         testRunner.WriteResult();
 	}
-
 }

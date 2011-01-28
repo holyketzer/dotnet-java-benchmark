@@ -1,12 +1,15 @@
-package JavaPerformanceTest;
+package JavaPerformance.CollectionsTests;
 
 import java.util.ArrayList;
+
+import JavaPerformance.SomeTest;
 
 public class DynamicArrayAccessTimeTest extends SomeTest
 {
     public DynamicArrayAccessTimeTest()
     {
-        _name = "Динамический массив<int> последовательный доступ к элементам";
+        _name = "DynamicArray<int> последовательный доступ к элементам";
+        _iterationCount = CollectionTestParams.ListAccessSize;
     }
     
     @Override
@@ -14,7 +17,7 @@ public class DynamicArrayAccessTimeTest extends SomeTest
     {
         ArrayList<Integer> list = new ArrayList<Integer>();
         
-        for (int i = 0; i < ListTestParams.ListAccessSize; ++i)
+        for (int i = 0; i < _iterationCount; ++i)
         {
             list.add(i);
         }
@@ -29,5 +32,7 @@ public class DynamicArrayAccessTimeTest extends SomeTest
             }
         }
         StopTiming();            
+        
+        list.clear();
     }
 }

@@ -1,12 +1,15 @@
-package JavaPerformanceTest;
+package JavaPerformance.CollectionsTests;
 
 import java.util.ArrayList;
+
+import JavaPerformance.SomeTest;
 
 public class DynamicArrayInsertRemoveTest extends SomeTest
 {
     public DynamicArrayInsertRemoveTest()
     {
-        _name = "Динамический массив<int> вставка/удаление элементов";
+        _name = "DynamicArray<int> вставка и удаление элементов";
+        _iterationCount = CollectionTestParams.ListInsertRemoveSize / 4;
     }
     
     @Override
@@ -14,7 +17,7 @@ public class DynamicArrayInsertRemoveTest extends SomeTest
     {            
         ArrayList<Integer> list = new ArrayList<Integer>();
         StartTiming();
-        for (int i = 0; i < ListTestParams.ListInsertRemoveSize; ++i)
+        for (int i = 0; i < _iterationCount; ++i)
         {
             list.add(i);
         }
@@ -23,5 +26,7 @@ public class DynamicArrayInsertRemoveTest extends SomeTest
             list.remove(0);
         }
         StopTiming();
+        
+        list.clear();
     }
 }

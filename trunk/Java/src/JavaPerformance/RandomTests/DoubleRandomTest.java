@@ -1,12 +1,15 @@
-package JavaPerformanceTest;
+package JavaPerformance.RandomTests;
 
 import java.util.Random;
+
+import JavaPerformance.SomeTest;
 
 public class DoubleRandomTest extends SomeTest
 {
     public DoubleRandomTest()
     {
         _name = "Генерация случайных чисел double";
+        _iterationCount = RandomTestParams.count;
     }
 
     private Random rnd = new Random();
@@ -15,7 +18,7 @@ public class DoubleRandomTest extends SomeTest
     public  void Do()
     {
         StartTiming();
-        for (int i = 0; i < 100000000; ++i)
+        for (int i = 0; i < _iterationCount; ++i)
         {
             @SuppressWarnings("unused")
 			double x = rnd.nextDouble();
