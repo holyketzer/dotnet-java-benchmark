@@ -10,6 +10,7 @@ public class DynamicArrayAccessTimeTest extends SomeTest
     {
         _name = "DynamicArray<int> последовательный доступ к элементам";
         _iterationCount = CollectionTestParams.ListAccessSize;
+        _iterationCoeff = 100;
     }
     
     @Override
@@ -21,9 +22,9 @@ public class DynamicArrayAccessTimeTest extends SomeTest
         {
             list.add(i);
         }
-
+        
         StartTiming();
-        for (int i = 0; i < 100; ++i)
+        for (int i = 0; i < _iterationCoeff; ++i)
         {
             for (int j = 0; j < list.size(); ++j)
             {

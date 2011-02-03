@@ -7,7 +7,7 @@ namespace DotNetPerformance.CollectionsTests
 {
     class ListTestParams
     {
-        public static readonly int ListInsertRemoveSize = 200000;
+        public static readonly int ListInsertRemoveSize = 500000;
         public static readonly int ListAccessSize = 2000000;
     }
     
@@ -17,6 +17,7 @@ namespace DotNetPerformance.CollectionsTests
         {
             _name = "DynamicArray<int> последовательный доступ к элементам";
             _iterationCount = ListTestParams.ListAccessSize;
+            _iterationCoeff = 100;
         }
 
         public override void Do()
@@ -27,9 +28,9 @@ namespace DotNetPerformance.CollectionsTests
             {
                 list.Add(i);
             }
-
+            
             StartTiming();
-            for (int i = 0; i < 100; ++i)
+            for (int i = 0; i < _iterationCoeff; ++i)
             {
                 for (int j = 0; j < list.Count; ++j)
                 {
@@ -70,6 +71,7 @@ namespace DotNetPerformance.CollectionsTests
         {
             _name = "LinkedList<int> последовательный доступ к элементам";
             _iterationCount = ListTestParams.ListAccessSize;
+            _iterationCoeff = 100;
         }
 
         public override void Do()
@@ -82,7 +84,7 @@ namespace DotNetPerformance.CollectionsTests
             }
 
             StartTiming();
-            for (int i = 0; i < 100; ++i)
+            for (int i = 0; i < _iterationCoeff; ++i)
             {
                 foreach (int value in list)
                 {
@@ -122,17 +124,26 @@ namespace DotNetPerformance.CollectionsTests
         public StackInsertRemoveTest()
         {
             _name = "Stack<int> вставка и удаление элементов";
-            _iterationCount = ListTestParams.ListInsertRemoveSize * 300;
+            _iterationCount = ListTestParams.ListInsertRemoveSize * 20;
         }
 
         public override void Do()
         {
             Stack<int> stack = new Stack<int>();
             StartTiming();
-            for (int i = 0; i < _iterationCount; ++i)
+            try
             {
-                stack.Push(i);
+                for (int i = 0; i < _iterationCount; ++i)
+                {
+                    stack.Push(i);
+                }
             }
+            catch (OutOfMemoryException)
+            {
+                Console.WriteLine("!! Недостаточно памяти для полного теста");
+                _iterationCount = stack.Count;
+            }
+          
             for (int i = 0; i < _iterationCount; ++i)
             {
                 int x = stack.Pop();
@@ -146,17 +157,26 @@ namespace DotNetPerformance.CollectionsTests
         public QueueInsertRemoveTest()
         {
             _name = "Queue<int> вставка и удаление элементов";
-            _iterationCount = ListTestParams.ListInsertRemoveSize * 300;
+            _iterationCount = ListTestParams.ListInsertRemoveSize * 10;
         }
         
         public override void Do()
         {
             Queue<int> stack = new Queue<int>();
             StartTiming();
-            for (int i = 0; i < _iterationCount; ++i)
+            try
             {
-                stack.Enqueue(i);
+                for (int i = 0; i < _iterationCount; ++i)
+                {
+                    stack.Enqueue(i);
+                }
             }
+            catch (OutOfMemoryException)
+            {
+                Console.WriteLine("!! Недостаточно памяти для полного теста");
+                _iterationCount = stack.Count;
+            }
+
             for (int i = 0; i < _iterationCount; ++i)
             {
                 int x = stack.Dequeue();

@@ -49,9 +49,17 @@ namespace DotNetPerformance
                 }
                 else
                 {
-                    double valule = _iterationCount;
                     return _iterationCount / (1000 * time);
                 }
+            }
+        }
+
+        protected int _iterationCoeff = 1;
+        public int IterationCount
+        {
+            get
+            {
+                return _iterationCount * _iterationCoeff;
             }
         }
 

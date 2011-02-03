@@ -5,18 +5,36 @@ using System.Text;
 
 namespace DotNetPerformance.ArraysTests
 {
+    public class ArrayTestParams 
+    {
+	    public static readonly int arraySize = 50000000; 
+    }
+    
     class ArrayIntCreateTest : SomeTest
     {
         public ArrayIntCreateTest()
         {
             _name = "int[] создание и заполнение массива";
-            _iterationCount = 50000000;
+            _iterationCount = ArrayTestParams.arraySize;
         }
         
         public override void Do()
         {
-            StartTiming();
-            int[] array = new int[_iterationCount];
+            int[] array = null;
+            while (array == null)
+            {
+                try
+                {
+                    StartTiming();
+                    array = new int[_iterationCount];
+                }
+                catch (OutOfMemoryException)
+                {
+                    _iterationCount /= 2;
+                    Console.WriteLine("!! Недостаточно памяти для полного теста");
+                }
+            }
+
             for (int i = 0; i < array.Length; ++i)
             {
                 array[i] = i;
@@ -30,12 +48,25 @@ namespace DotNetPerformance.ArraysTests
         public ArrayIntAccessTest()
         {
             _name = "int[] последовательный доступ к элементам";
-            _iterationCount = 50000000;
+            _iterationCount = ArrayTestParams.arraySize;
         }
 
         public override void Do()
         {
-            int[] array = new int[_iterationCount];
+            int[] array = null;
+            while (array == null)
+            {
+                try
+                {
+                    array = new int[_iterationCount];
+                }
+                catch (OutOfMemoryException)
+                {
+                    _iterationCount /= 2;
+                    Console.WriteLine("!! Недостаточно памяти для полного теста");
+                }
+            }
+
             for (int i = 0; i < array.Length; ++i)
             {
                 array[i] = i;
@@ -59,13 +90,26 @@ namespace DotNetPerformance.ArraysTests
         public ArrayDoubleCreateTest()
         {
             _name = "double[] создание и заполнение массива";
-            _iterationCount = 50000000;
+            _iterationCount = ArrayTestParams.arraySize;
         }
 
         public override void Do()
         {
-            StartTiming();
-            double[] array = new double[_iterationCount];
+            double[] array = null;
+		    while (array == null)
+		    {
+			    try
+			    {
+				    StartTiming();
+                    array = new double[_iterationCount];
+                }
+                catch (OutOfMemoryException)
+                {
+                    _iterationCount /= 2;
+                    Console.WriteLine("!! Недостаточно памяти для полного теста");
+                }
+            }
+            
             for (int i = 0; i < array.Length; ++i)
             {
                 array[i] = i;
@@ -84,7 +128,21 @@ namespace DotNetPerformance.ArraysTests
 
         public override void Do()
         {
-            double[] array = new double[_iterationCount];
+            double[] array = null;
+            while (array == null)
+            {
+                try
+                {
+
+                    array = new double[_iterationCount];
+                }
+                catch (OutOfMemoryException)
+                {
+                    _iterationCount /= 2;
+                    Console.WriteLine("!! Недостаточно памяти для полного теста");
+                }
+            }
+
             for (int i = 0; i < array.Length; ++i)
             {
                 array[i] = i;

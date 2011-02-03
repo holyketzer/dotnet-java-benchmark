@@ -5,12 +5,17 @@ using System.Text;
 
 namespace DotNetPerformance.RandomTests
 {
+    public class RandomTestParams
+    {
+        public static readonly int count = 100000000;
+    }
+    
     class IntRandomTest : SomeTest
     {
         public IntRandomTest()
         {
             _name = "Генерация случайных чисел int";
-            _iterationCount = 100000000;
+            _iterationCount = RandomTestParams.count;
         }
 
         private Random rnd = new Random();
@@ -31,7 +36,7 @@ namespace DotNetPerformance.RandomTests
         public DoubleRandomTest()
         {
             _name = "Генерация случайных чисел double";
-            _iterationCount = 100000000;
+            _iterationCount = RandomTestParams.count;
         }
 
         private Random rnd = new Random();
