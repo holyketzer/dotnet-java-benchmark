@@ -5,12 +5,17 @@ using System.Text;
 
 namespace DotNetPerformance.Math
 {
+    public class MathTestParams 
+    {
+	    public static readonly int iterationCount = 10000000;
+    }
+    
     class Div10Test : SomeTest
     {
         public Div10Test()
         {
             _name = "Деление целых чисел на 10";
-            _iterationCount = 1000000000;
+            _iterationCount = MathTestParams.iterationCount * 10;
         }
         
         public override void Do()
@@ -29,7 +34,7 @@ namespace DotNetPerformance.Math
         public SqrtTest()
         {
             _name = "Квадратный корень";
-            _iterationCount = 1000000000;
+            _iterationCount = MathTestParams.iterationCount * 10;
         }
 
         public override void Do()
@@ -48,7 +53,7 @@ namespace DotNetPerformance.Math
         public SinTest()
         {
             _name = "Синус";
-            _iterationCount = 1000000000;
+            _iterationCount = MathTestParams.iterationCount;
         }
 
         public override void Do()
@@ -67,7 +72,7 @@ namespace DotNetPerformance.Math
         public CosTest()
         {
             _name = "Косинус";
-            _iterationCount = 1000000000;
+            _iterationCount = MathTestParams.iterationCount;
         }
 
         public override void Do()
@@ -86,7 +91,7 @@ namespace DotNetPerformance.Math
         public TanTest()
         {
             _name = "Тангенс";
-            _iterationCount = 10000000;
+            _iterationCount = MathTestParams.iterationCount;
         }
 
         public override void Do()
@@ -105,7 +110,7 @@ namespace DotNetPerformance.Math
         public Log10Test()
         {
             _name = "Десятичный логарифм";
-            _iterationCount = 10000000;
+            _iterationCount = MathTestParams.iterationCount * 10;
         }
 
         public override void Do()
@@ -124,7 +129,7 @@ namespace DotNetPerformance.Math
         public ExpTest()
         {
             _name = "Экспонента";
-            _iterationCount = 10000000;
+            _iterationCount = MathTestParams.iterationCount;
         }
 
         public override void Do()
@@ -143,7 +148,7 @@ namespace DotNetPerformance.Math
         public AsinTest()
         {
             _name = "Арксинус";
-            _iterationCount = 10000000;
+            _iterationCount = MathTestParams.iterationCount;
         }
 
         public override void Do()
@@ -162,7 +167,7 @@ namespace DotNetPerformance.Math
         public AcosTest()
         {
             _name = "Арккосинус";
-            _iterationCount = 10000000;
+            _iterationCount = MathTestParams.iterationCount;
         }
 
         public override void Do()
@@ -181,7 +186,7 @@ namespace DotNetPerformance.Math
         public AtanTest()
         {
             _name = "Арктангенс";
-            _iterationCount = 10000000;
+            _iterationCount = MathTestParams.iterationCount;
         }
 
         public override void Do()

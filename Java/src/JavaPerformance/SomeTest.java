@@ -43,9 +43,10 @@ public abstract class SomeTest
         }
     }       
     
+    protected int _iterationCoeff = 1;
     public int getIterationCount()
     {
-    	return _iterationCount;
+    	return _iterationCount * _iterationCoeff;
     }
     
     protected long _lastStartTime = 0;

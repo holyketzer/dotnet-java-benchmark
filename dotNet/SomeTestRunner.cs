@@ -24,6 +24,8 @@ namespace DotNetPerformance
         
         public void Do()
         {
+            Console.WriteLine();
+            Console.WriteLine("running testgroup: " + this.Name);
             foreach (SomeTest test in _tests)
             {
                 Console.WriteLine("running test: " + test.Name);
@@ -37,7 +39,7 @@ namespace DotNetPerformance
             Console.WriteLine(this.Name + ":");
             foreach (SomeTest test in _tests)
             {
-                Console.WriteLine(String.Format("{0:F5} op/mks {1:F2} ms. {2}", test.Score, test.Time, test.Name));
+                Console.WriteLine(String.Format("{0:F5} op/mks {1:F2} ms. {2:E0} {3}", test.Score, test.Time, test.IterationCount, test.Name));
             }
         }
     }

@@ -11,6 +11,7 @@ public class LinkedListAccessTimeTest extends SomeTest
     {
         _name = "LinkedList<int> последовательный доступ к элементам";
         _iterationCount = CollectionTestParams.ListAccessSize;
+        _iterationCoeff = 100;
     }
 
     @Override
@@ -24,7 +25,7 @@ public class LinkedListAccessTimeTest extends SomeTest
         }
 
         StartTiming();
-        for (int i = 0; i < 100; ++i)
+        for (int i = 0; i < _iterationCoeff; ++i)
         {
             Iterator<Integer> iter = list.iterator();
         	while (iter.hasNext())

@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNetPerformanceTest", "dotNetPerformanceTest.csproj", "{8F36A320-AE8D-4EE1-9DE4-A4B05082F5C4}"
 EndProject
 Global
