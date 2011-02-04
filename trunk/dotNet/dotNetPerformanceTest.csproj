@@ -75,6 +75,7 @@
     <Compile Include="RandomTests.cs" />
     <Compile Include="SomeTest.cs" />
     <Compile Include="SomeTestRunner.cs" />
+    <Compile Include="StringConversions.cs" />
     <Compile Include="Tester.cs" />
   </ItemGroup>
   <ItemGroup>
