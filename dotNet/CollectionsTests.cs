@@ -185,17 +185,89 @@ namespace DotNetPerformance.CollectionsTests
         }
     }
 
+    class DictionaryInsertRemoveTest : SomeTest
+    {
+        public DictionaryInsertRemoveTest()
+        {
+            _name = "Dictionary<int, string> вставка и удаление элементов";
+            _iterationCount = ListTestParams.ListInsertRemoveSize * 2;
+        }
+        
+        public override void Do()
+        {
+            Dictionary<int, string> dic = new Dictionary<int, string>();
+
+            StartTiming();
+            try
+            {
+                for (int i = 0; i < _iterationCount; ++i)
+                {
+                    dic.Add(i, i.ToString());
+                }
+            }
+            catch (OutOfMemoryException)
+            {
+                Console.WriteLine("!! Недостаточно памяти для полного теста");
+                _iterationCount = dic.Count;
+            }
+
+            while (dic.Count > 0)
+            {
+                dic.Remove(dic.Count - 1);
+            }
+
+            StopTiming();
+        }
+    }
+
+    class DictionaryAccessTimeTest : SomeTest
+    {
+        public DictionaryAccessTimeTest()
+        {
+            _name = "Dictionary<int, string> последовательный доступ к элементам";
+            _iterationCount = ListTestParams.ListAccessSize * 5;
+        }
+
+        public override void Do()
+        {
+            Dictionary<int, string> dic = new Dictionary<int, string>();
+                        
+            try
+            {
+                for (int i = 0; i < _iterationCount; ++i)
+                {
+                    dic.Add(i, i.ToString());
+                }
+            }
+            catch (OutOfMemoryException)
+            {
+                Console.WriteLine("!! Недостаточно памяти для полного теста");
+                _iterationCount = dic.Count;
+            }
+
+            StartTiming();
+            for (int i = 0; i < dic.Count; ++i)
+            {
+                string x = dic[i];
+            }
+            StopTiming();
+        }
+    }
+
     class CollectionsTestsRunner : SomeTestRunner
     {
         protected override void InitTests()
         {
             _name = "Коллекции";
+
             _tests.Add(new DynamicArrayAccessTimeTest());
             _tests.Add(new DynamicArrayInsertRemoveTest());
             _tests.Add(new LinkedListAccessTimeTest());
             _tests.Add(new LinkedListInsertRemoveTest());
             _tests.Add(new StackInsertRemoveTest());
             _tests.Add(new QueueInsertRemoveTest());
+            _tests.Add(new DictionaryInsertRemoveTest());
+            _tests.Add(new DictionaryAccessTimeTest());
         }
     }
 }

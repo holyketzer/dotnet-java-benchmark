@@ -7,7 +7,7 @@ using DotNetPerformance.ArraysTests;
 using DotNetPerformance.CollectionsTests;
 using DotNetPerformance.Math;
 using DotNetPerformance.RandomTests;
-
+using DotNetPerformance.StringConversions;
 
 namespace DotNetPerformance
 {
@@ -33,6 +33,7 @@ namespace DotNetPerformance
             _testsRunners.Add(new RandomTestsRunner());
             _testsRunners.Add(new ArraysTestsRunner());
             _testsRunners.Add(new CollectionsTestsRunner());
+            _testsRunners.Add(new StringConversionsTestRunner());
         }
 
         public void Do()
@@ -41,6 +42,7 @@ namespace DotNetPerformance
             
             for (int i = 0; i < _totalLoops; ++i)
             {
+                Console.WriteLine();
                 Console.WriteLine("loop #" + (i+1).ToString());
                 
                 foreach (SomeTestRunner testRunner in _testsRunners)
