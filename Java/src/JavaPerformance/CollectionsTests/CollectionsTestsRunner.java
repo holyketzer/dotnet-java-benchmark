@@ -19,6 +19,8 @@ public class CollectionsTestsRunner extends SomeTestRunner
         _tests.add(new LinkedListInsertRemoveTest());
         _tests.add(new StackInsertRemoveTest());
         _tests.add(new QueueInsertRemoveTest());
+        _tests.add(new DictionaryInsertRemoveTest());
+        _tests.add(new DictionaryAccessTimeTest());
 	}
 
 }

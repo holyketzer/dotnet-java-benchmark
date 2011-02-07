@@ -1,6 +1,6 @@
 package JavaPerformance;
 
-class main {
+class Programm {
 
 	/**
 	 * @param args
