@@ -15,7 +15,7 @@ namespace DotNetPerformance.StringConversions
         public IntParseTest()
         {
             _name = "Парсинг int";
-            _iterationCount = StringConversionsTestParams.iterationCount;
+            _iterationCount = StringConversionsTestParams.iterationCount / 2;
         }
 
         public override void Do()
@@ -41,7 +41,7 @@ namespace DotNetPerformance.StringConversions
         public FloatParseTest()
         {
             _name = "Парсинг float";
-            _iterationCount = StringConversionsTestParams.iterationCount;
+            _iterationCount = StringConversionsTestParams.iterationCount / 2;
         }
 
         public override void Do()
@@ -69,7 +69,7 @@ namespace DotNetPerformance.StringConversions
         public DoubleParseTest()
         {
             _name = "Парсинг double";
-            _iterationCount = StringConversionsTestParams.iterationCount;
+            _iterationCount = StringConversionsTestParams.iterationCount / 2;
         }
 
         public override void Do()
@@ -197,7 +197,7 @@ namespace DotNetPerformance.StringConversions
         public StringBuilderConcatTest()
         {
             _name = "Конкатенация строк в StringBuilder";
-            _iterationCount = StringConversionsTestParams.iterationCount;
+            _iterationCount = StringConversionsTestParams.iterationCount / 2;
         }
 
         public override void Do()

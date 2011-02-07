@@ -7,6 +7,7 @@ import JavaPerformance.ArraysTests.ArraysTestsRunner;
 import JavaPerformance.CollectionsTests.CollectionsTestsRunner;
 import JavaPerformance.MathTests.MathTestsRunner;
 import JavaPerformance.RandomTests.RandomTestsRunner;
+import JavaPerformance.StringConversionsTests.StringConversionsTestRunner;
 
 public class Tester 
 {
@@ -30,6 +31,7 @@ public class Tester
     	_testsRunners.add(new RandomTestsRunner());
     	_testsRunners.add(new ArraysTestsRunner());
     	_testsRunners.add(new CollectionsTestsRunner());
+    	_testsRunners.add(new StringConversionsTestRunner());
     }
     
     public void Do()
@@ -37,6 +39,7 @@ public class Tester
     	System.out.println("total loops = " + _totalLoops);
     	for (int i = 0; i < _totalLoops; ++i)
     	{
+    		System.out.println();
     		System.out.println("loop #" + (i+1));
     		
     		for (Iterator<SomeTestRunner> iterator = _testsRunners.iterator(); iterator.hasNext();)
