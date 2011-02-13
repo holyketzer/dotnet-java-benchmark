@@ -8,6 +8,7 @@ namespace DotNetPerformance
     abstract class SomeTestRunner
     {
         protected List<SomeTest> _tests = new List<SomeTest>();
+		private long _maxTotalMemory = 0;
         
         public SomeTestRunner()
         {
@@ -30,6 +31,7 @@ namespace DotNetPerformance
             {
                 Console.WriteLine("running test: " + test.Name);
                 test.Do();
+				_maxTotalMemory = System.Math.Max(GC.GetTotalMemory(false), _maxTotalMemory);
             }
         }
 
@@ -42,5 +44,10 @@ namespace DotNetPerformance
                 Console.WriteLine(String.Format("{0:F5} op/mks {1:F2} ms. {2:E0} {3}", test.Score, test.Time, test.IterationCount, test.Name));
             }
         }
+		
+		public long GetMaxTotalMemory()
+		{
+			return _maxTotalMemory;
+		}
     }
 }

@@ -15,6 +15,7 @@ namespace DotNetPerformance
     {
         private List<SomeTestRunner> _testsRunners = new List<SomeTestRunner>();
         private int _totalLoops = 1;
+		private long _maxTotalMemory = 0;
 
         public Tester()
         {
@@ -57,7 +58,9 @@ namespace DotNetPerformance
             foreach (SomeTestRunner testRunner in _testsRunners)
             {
                 testRunner.WriteResult();
+				_maxTotalMemory = System.Math.Max(testRunner.GetMaxTotalMemory(), _maxTotalMemory);
             }
+			Console.WriteLine("MaxTotalMemory: " + _maxTotalMemory);
         }
     }
 }
