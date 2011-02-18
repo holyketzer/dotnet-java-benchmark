@@ -9,7 +9,7 @@ public class DictionaryAccessTimeTest extends SomeTest
     public DictionaryAccessTimeTest()
     {
         _name = "Dictionary<int, string> последовательный доступ к элементам";
-        _iterationCount = CollectionTestParams.ListAccessSize * 5;
+        _iterationCount = CollectionTestParams.ListAccessSize;
     }
     
 	@Override

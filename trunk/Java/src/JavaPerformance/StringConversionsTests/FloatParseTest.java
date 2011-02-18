@@ -7,7 +7,7 @@ public class FloatParseTest extends SomeTest
 	public FloatParseTest()
 	{
 	    _name = "Парсинг float";
-	    _iterationCount = StringConversionsTestParams.iterationCount/2;
+	    _iterationCount = StringConversionsTestParams.iterationCount/20;
 	}
 	 
 	@Override

@@ -2,11 +2,11 @@ package JavaPerformance.StringConversionsTests;
 
 import JavaPerformance.SomeTest;
 
-public class StringRemoveTest extends SomeTest 
+public class StringSubstringTest extends SomeTest 
 {
-    public StringRemoveTest()
+    public StringSubstringTest()
     {
-        _name = "Удаление символов из строк";
+        _name = "Выделение подстрок";
         _iterationCount = StringConversionsTestParams.iterationCount / 1000;
     }
     

@@ -17,7 +17,7 @@ public class StringConversionsTestRunner extends SomeTestRunner
         _tests.add(new DoubleToStringTest());
         _tests.add(new StringConcatTest());
         _tests.add(new StringBuilderConcatTest());
-        _tests.add(new StringRemoveTest());
+        _tests.add(new StringSubstringTest());
         _tests.add(new StringBuilderRemoveTest());
         _tests.add(new StringReplaceTest());
         //_tests.add(new StringBuilderReplaceTest());

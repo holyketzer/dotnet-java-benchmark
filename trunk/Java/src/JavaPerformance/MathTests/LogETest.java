@@ -2,28 +2,24 @@ package JavaPerformance.MathTests;
 
 import JavaPerformance.SomeTest;
 
-public class TanTest extends SomeTest 
+public class LogETest extends SomeTest 
 {
-    public TanTest()
+	public LogETest()
     {
-        _name = "Тангенс";
+        _name = "Натуральный логарифм";
         _iterationCount = MathTestParams.iterationCount;
     }
-    
+
 	@Override
-	public void Do() 
-	{
-		double val = 0;
-        double dt = 1;
-        dt /= _iterationCount;
-        
+    public void Do()
+    {
         StartTiming();
         for (int i = 0; i < _iterationCount; ++i)
         {
             @SuppressWarnings("unused")
-			double x = Math.tan(val);
-            val += dt;
+			double x = Math.log(i);
         }
         StopTiming();
-	}
+    }
+
 }

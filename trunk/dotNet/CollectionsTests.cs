@@ -46,7 +46,7 @@ namespace DotNetPerformance.CollectionsTests
         public DynamicArrayInsertRemoveTest()
         {
             _name = "DynamicArray<int> вставка и удаление элементов";
-            _iterationCount = ListTestParams.ListInsertRemoveSize / 4;
+            _iterationCount = ListTestParams.ListInsertRemoveSize / 10;
         }
         
         public override void Do()
@@ -70,7 +70,7 @@ namespace DotNetPerformance.CollectionsTests
         public LinkedListAccessTimeTest()
         {
             _name = "LinkedList<int> последовательный доступ к элементам";
-            _iterationCount = ListTestParams.ListAccessSize;
+            _iterationCount = ListTestParams.ListAccessSize/2;
             _iterationCoeff = 100;
         }
 
@@ -157,7 +157,7 @@ namespace DotNetPerformance.CollectionsTests
         public QueueInsertRemoveTest()
         {
             _name = "Queue<int> вставка и удаление элементов";
-            _iterationCount = ListTestParams.ListInsertRemoveSize * 10;
+            _iterationCount = ListTestParams.ListInsertRemoveSize * 2;
         }
         
         public override void Do()
@@ -225,7 +225,7 @@ namespace DotNetPerformance.CollectionsTests
         public DictionaryAccessTimeTest()
         {
             _name = "Dictionary<int, string> последовательный доступ к элементам";
-            _iterationCount = ListTestParams.ListAccessSize * 5;
+            _iterationCount = ListTestParams.ListAccessSize;
         }
 
         public override void Do()

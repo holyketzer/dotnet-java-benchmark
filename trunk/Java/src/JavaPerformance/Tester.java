@@ -13,6 +13,7 @@ public class Tester
 {
 	private ArrayList<SomeTestRunner> _testsRunners = new ArrayList<SomeTestRunner>();  
     private int _totalLoops = 1;
+	private long _maxTotalMemory = 0;
     
     public Tester()
     {
@@ -53,7 +54,10 @@ public class Tester
     {
     	for (Iterator<SomeTestRunner> iterator = _testsRunners.iterator(); iterator.hasNext();)
     	{
-        	iterator.next().WriteResult();
+        	SomeTestRunner testRunner = iterator.next();
+        	testRunner.WriteResult();
+        	_maxTotalMemory = Math.max(testRunner.GetMaxTotalMemory(), _maxTotalMemory);
         }
+    	System.out.println("MaxTotalMemory: " + _maxTotalMemory);
     }
 }

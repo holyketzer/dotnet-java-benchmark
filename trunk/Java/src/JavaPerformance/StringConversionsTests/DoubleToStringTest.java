@@ -7,7 +7,7 @@ public class DoubleToStringTest extends SomeTest
     public DoubleToStringTest()
     {
         _name = "double.ToString()";
-        _iterationCount = StringConversionsTestParams.iterationCount;
+        _iterationCount = StringConversionsTestParams.iterationCount/10;
     }
     
 	@Override

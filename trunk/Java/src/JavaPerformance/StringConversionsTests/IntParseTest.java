@@ -7,7 +7,7 @@ public class IntParseTest extends SomeTest
 	public IntParseTest()
     {
         _name = "Парсинг int";
-        _iterationCount = StringConversionsTestParams.iterationCount/2;
+        _iterationCount = StringConversionsTestParams.iterationCount/10;
     }
 	
 	@Override

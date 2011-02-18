@@ -7,7 +7,7 @@ namespace DotNetPerformance.RandomTests
 {
     public class RandomTestParams
     {
-        public static readonly int count = 100000000;
+        public static readonly int count = 10000000;
     }
     
     class IntRandomTest : SomeTest

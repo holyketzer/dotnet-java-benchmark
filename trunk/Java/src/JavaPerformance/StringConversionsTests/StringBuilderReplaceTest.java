@@ -24,12 +24,7 @@ public class StringBuilderReplaceTest extends SomeTest
         {
         	String str = Integer.toString(i);
         	char c = str.charAt(0);
-        	/*int index = sb.indexOf(str);
-        	while (index != -1)
-            {
-            	sb.replace(index, index + str.length(), "+");
-            	index = sb.indexOf(str);
-            }*/
+
         	for (int pos = 0; pos < sb.length(); ++pos)
         	{
         		if (sb.charAt(pos) == c)

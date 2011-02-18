@@ -1,13 +1,13 @@
 package JavaPerformance;
 
-class Programm {
+class main {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) 
 	{
-        Tester testRunner = new Tester();
+        Tester testRunner = new Tester(1);
         testRunner.Do();
         testRunner.WriteResult();
 	}
