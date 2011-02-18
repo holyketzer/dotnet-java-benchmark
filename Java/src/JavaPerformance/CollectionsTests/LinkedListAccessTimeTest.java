@@ -10,7 +10,7 @@ public class LinkedListAccessTimeTest extends SomeTest
     public LinkedListAccessTimeTest()
     {
         _name = "LinkedList<int> последовательный доступ к элементам";
-        _iterationCount = CollectionTestParams.ListAccessSize;
+        _iterationCount = CollectionTestParams.ListAccessSize/2;
         _iterationCoeff = 100;
     }
 

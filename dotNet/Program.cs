@@ -9,7 +9,7 @@ namespace DotNetPerformance
     {
         static void Main(string[] args)
         {
-            Tester testRunner = new Tester(1);
+            Tester testRunner = new Tester(5);
             testRunner.Do();
             testRunner.WriteResult();
         }

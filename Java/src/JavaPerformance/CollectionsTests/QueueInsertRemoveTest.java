@@ -9,7 +9,7 @@ public class QueueInsertRemoveTest extends SomeTest
 	 public QueueInsertRemoveTest()
 	 {
 	     _name = "Queue<int> вставка и удаление элементов";
-	     _iterationCount = CollectionTestParams.ListInsertRemoveSize * 10;
+	     _iterationCount = CollectionTestParams.ListInsertRemoveSize * 2;
 	 }
 	 
 	 @Override

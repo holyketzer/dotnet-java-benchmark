@@ -15,7 +15,7 @@ namespace DotNetPerformance.StringConversions
         public IntParseTest()
         {
             _name = "Парсинг int";
-            _iterationCount = StringConversionsTestParams.iterationCount / 2;
+            _iterationCount = StringConversionsTestParams.iterationCount / 10;
         }
 
         public override void Do()
@@ -41,7 +41,7 @@ namespace DotNetPerformance.StringConversions
         public FloatParseTest()
         {
             _name = "Парсинг float";
-            _iterationCount = StringConversionsTestParams.iterationCount / 2;
+            _iterationCount = StringConversionsTestParams.iterationCount / 20;
         }
 
         public override void Do()
@@ -69,7 +69,7 @@ namespace DotNetPerformance.StringConversions
         public DoubleParseTest()
         {
             _name = "Парсинг double";
-            _iterationCount = StringConversionsTestParams.iterationCount / 2;
+            _iterationCount = StringConversionsTestParams.iterationCount / 20;
         }
 
         public override void Do()
@@ -116,7 +116,7 @@ namespace DotNetPerformance.StringConversions
         public FloatToStringTest()
         {
             _name = "float.ToString()";
-            _iterationCount = StringConversionsTestParams.iterationCount;
+            _iterationCount = StringConversionsTestParams.iterationCount/10;
         }
 
         public override void Do()
@@ -138,12 +138,12 @@ namespace DotNetPerformance.StringConversions
         }
     }
 
-    class DoubleToStringeTest : SomeTest
+    class DoubleToStringTest : SomeTest
     {
-        public DoubleToStringeTest()
+        public DoubleToStringTest()
         {
             _name = "double.ToString()";
-            _iterationCount = StringConversionsTestParams.iterationCount;
+            _iterationCount = StringConversionsTestParams.iterationCount/10;
         }
 
         public override void Do()
@@ -220,11 +220,11 @@ namespace DotNetPerformance.StringConversions
         }
     }
 
-    class StringRemoveTest : SomeTest
+    class StringSubstringTest : SomeTest
     {
-        public StringRemoveTest()
+        public StringSubstringTest()
         {
-            _name = "Удаление символов из строк";
+            _name = "Выделение подстрок";
             _iterationCount = StringConversionsTestParams.iterationCount / 1000;
         }
 
@@ -241,7 +241,7 @@ namespace DotNetPerformance.StringConversions
             
             while (s.Length > 0)
             {
-                s = s.Remove(s.Length-1, 1);
+                s = s.Substring(0, s.Length-1);
             }
             StopTiming();
         }
@@ -277,7 +277,7 @@ namespace DotNetPerformance.StringConversions
         public StringReplaceTest()
         {
             _name = "Замена символов в string";
-            _iterationCount = StringConversionsTestParams.iterationCount / 10;
+            _iterationCount = StringConversionsTestParams.iterationCount / 20;
         }
 
         public override void Do()
@@ -334,10 +334,10 @@ namespace DotNetPerformance.StringConversions
             _tests.Add(new DoubleParseTest());
             _tests.Add(new IntToStringTest());
             _tests.Add(new FloatToStringTest());
-            _tests.Add(new DoubleToStringeTest());
+            _tests.Add(new DoubleToStringTest());
             _tests.Add(new StringConcatTest());
             _tests.Add(new StringBuilderConcatTest());
-            _tests.Add(new StringRemoveTest());
+            _tests.Add(new StringSubstringTest());
             _tests.Add(new StringBuilderRemoveTest());
             _tests.Add(new StringReplaceTest());
             _tests.Add(new StringBuilderReplaceTest());

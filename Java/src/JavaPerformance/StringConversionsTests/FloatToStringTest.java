@@ -7,7 +7,7 @@ public class FloatToStringTest extends SomeTest
     public FloatToStringTest()
     {
         _name = "float.ToString()";
-        _iterationCount = StringConversionsTestParams.iterationCount;
+        _iterationCount = StringConversionsTestParams.iterationCount/10;
     }
     
 	@Override

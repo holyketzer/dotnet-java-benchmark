@@ -9,7 +9,7 @@ public class DynamicArrayInsertRemoveTest extends SomeTest
     public DynamicArrayInsertRemoveTest()
     {
         _name = "DynamicArray<int> вставка и удаление элементов";
-        _iterationCount = CollectionTestParams.ListInsertRemoveSize / 4;
+        _iterationCount = CollectionTestParams.ListInsertRemoveSize / 10;
     }
     
     @Override

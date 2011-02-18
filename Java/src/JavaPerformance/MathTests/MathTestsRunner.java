@@ -14,6 +14,7 @@ public class MathTestsRunner extends SomeTestRunner
         _tests.add(new SinTest());
         _tests.add(new CosTest());
         _tests.add(new TanTest());
+        _tests.add(new LogETest());
         _tests.add(new Log10Test());
         _tests.add(new ExpTest());
         _tests.add(new AsinTest());

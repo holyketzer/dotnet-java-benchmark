@@ -7,7 +7,7 @@ namespace DotNetPerformance.Math
 {
     public class MathTestParams 
     {
-	    public static readonly int iterationCount = 10000000;
+        public static readonly int iterationCount = 5000000;
     }
     
     class Div10Test : SomeTest
@@ -53,15 +53,20 @@ namespace DotNetPerformance.Math
         public SinTest()
         {
             _name = "Синус";
-            _iterationCount = MathTestParams.iterationCount;
+            _iterationCount = MathTestParams.iterationCount * 5;
         }
 
         public override void Do()
         {
+            double val = 0;
+            double dt = 1;
+            dt /= _iterationCount;
+
             StartTiming();
             for (int i = 0; i < _iterationCount; ++i)
             {
-                double x = System.Math.Sin(i);
+                double x = System.Math.Sin(val);
+                val += dt;
             }
             StopTiming();
         }
@@ -72,15 +77,20 @@ namespace DotNetPerformance.Math
         public CosTest()
         {
             _name = "Косинус";
-            _iterationCount = MathTestParams.iterationCount;
+            _iterationCount = MathTestParams.iterationCount * 5;
         }
 
         public override void Do()
         {
+            double val = 0;
+            double dt = 1;
+            dt /= _iterationCount;
+
             StartTiming();
             for (int i = 0; i < _iterationCount; ++i)
             {
-                double x = System.Math.Cos(i);
+                double x = System.Math.Cos(val);
+                val += dt;
             }
             StopTiming();
         }
@@ -96,10 +106,34 @@ namespace DotNetPerformance.Math
 
         public override void Do()
         {
+            double val = 0;
+            double dt = 1;
+            dt /= _iterationCount;
+
             StartTiming();
             for (int i = 0; i < _iterationCount; ++i)
             {
-                double x = System.Math.Tan(i);
+                double x = System.Math.Tan(val);
+                val += dt;
+            }
+            StopTiming();
+        }
+    }
+
+    class LogETest : SomeTest
+    {
+        public LogETest()
+        {
+            _name = "Натуральный логарифм";
+            _iterationCount = MathTestParams.iterationCount;
+        }
+
+        public override void Do()
+        {
+            StartTiming();
+            for (int i = 0; i < _iterationCount; ++i)
+            {
+                double x = System.Math.Log(i);
             }
             StopTiming();
         }
@@ -110,7 +144,7 @@ namespace DotNetPerformance.Math
         public Log10Test()
         {
             _name = "Десятичный логарифм";
-            _iterationCount = MathTestParams.iterationCount * 10;
+            _iterationCount = MathTestParams.iterationCount;
         }
 
         public override void Do()
@@ -211,6 +245,7 @@ namespace DotNetPerformance.Math
             _tests.Add(new SinTest());
             _tests.Add(new CosTest());
             _tests.Add(new TanTest());
+            _tests.Add(new LogETest());
             _tests.Add(new Log10Test());
             _tests.Add(new ExpTest());
             _tests.Add(new AsinTest());

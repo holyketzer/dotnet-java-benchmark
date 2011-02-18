@@ -7,7 +7,7 @@ public class StringReplaceTest extends SomeTest
     public StringReplaceTest()
     {
         _name = "Замена символов в string";
-        _iterationCount = StringConversionsTestParams.iterationCount / 10;
+        _iterationCount = StringConversionsTestParams.iterationCount / 20;
     }
     
 	@Override

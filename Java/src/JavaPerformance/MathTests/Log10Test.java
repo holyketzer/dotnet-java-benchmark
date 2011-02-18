@@ -7,7 +7,7 @@ public class Log10Test extends SomeTest
     public Log10Test()
     {
         _name = "Десятичный логарифм";
-        _iterationCount = MathTestParams.iterationCount * 10;
+        _iterationCount = MathTestParams.iterationCount;
     }
     
 	@Override

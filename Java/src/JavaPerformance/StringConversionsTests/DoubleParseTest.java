@@ -7,7 +7,7 @@ public class DoubleParseTest extends SomeTest
     public DoubleParseTest()
     {
         _name = "Парсинг double";
-        _iterationCount = StringConversionsTestParams.iterationCount/2;
+        _iterationCount = StringConversionsTestParams.iterationCount/20;
     }
     
 	@Override
