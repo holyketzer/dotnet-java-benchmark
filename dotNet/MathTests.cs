@@ -59,7 +59,7 @@ namespace DotNetPerformance.Math
         public override void Do()
         {
             double val = 0;
-            double dt = 1;
+            double dt = System.Math.PI * 2;
             dt /= _iterationCount;
 
             StartTiming();
@@ -83,7 +83,7 @@ namespace DotNetPerformance.Math
         public override void Do()
         {
             double val = 0;
-            double dt = 1;
+            double dt = System.Math.PI * 2;
             dt /= _iterationCount;
 
             StartTiming();
@@ -107,7 +107,7 @@ namespace DotNetPerformance.Math
         public override void Do()
         {
             double val = 0;
-            double dt = 1;
+            double dt = System.Math.PI * 2;
             dt /= _iterationCount;
 
             StartTiming();
