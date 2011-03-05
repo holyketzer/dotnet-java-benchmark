@@ -14,7 +14,7 @@ public class TanTest extends SomeTest
 	public void Do() 
 	{
 		double val = 0;
-        double dt = 1;
+        double dt = Math.PI * 2;
         dt /= _iterationCount;
         
         StartTiming();

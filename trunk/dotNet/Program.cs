@@ -9,7 +9,17 @@ namespace DotNetPerformance
     {
         static void Main(string[] args)
         {
-            Tester testRunner = new Tester(5);
+            int iterationCount = 5;
+            if (args.Length > 0)
+            {
+                if (!int.TryParse(args[0], out iterationCount))
+                {
+                    iterationCount = 5;
+                }
+            }
+            Console.WriteLine("iterationCount = " + iterationCount);
+
+            Tester testRunner = new Tester(iterationCount);
             testRunner.Do();
             testRunner.WriteResult();
         }
